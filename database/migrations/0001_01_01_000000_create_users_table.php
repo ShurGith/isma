@@ -16,6 +16,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('avatar')->nullable();
             $table->string('email')->unique();
+
+        /*    $table->foreignId('country_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('state_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('city_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
+            $table->string('address')->nullable()->nullable();
+            $table->string('postal_code')->nullable()->nullable();
+        */
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

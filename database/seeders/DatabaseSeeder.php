@@ -14,12 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
 
         User::factory()->create([
             'name' => 'JuanJota',
             'email' => 'esnola@gmail.com',
             'password' =>Hash::make('1234'),
         ]);
+        User::factory(10)->create();
+        $this->call(WorldTableSeeder::class);
     }
 }
