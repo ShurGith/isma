@@ -7,7 +7,6 @@ use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\City;
 use App\Models\State;
 use App\Models\User;
-use App\Models\Country;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
@@ -15,13 +14,10 @@ use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Table;
 use Illuminate\Support\Collection;
-
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-;
 
 class UserResource extends Resource
 {
@@ -143,13 +139,13 @@ protected static ?int $navigationSort = 1;
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()
+                    ->slideOver(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -170,7 +166,7 @@ protected static ?int $navigationSort = 1;
         return [
             'index' => Pages\ListUsers::route('/'),
             'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+//            'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
 }
