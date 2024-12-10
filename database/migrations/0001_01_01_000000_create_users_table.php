@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('avatar')->nullable();
             $table->string('email')->unique();
+            $table->boolean('is_active')->default(true);
+            $table->integer('phone_number')->nullable();
 
         /*    $table->foreignId('country_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('state_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
