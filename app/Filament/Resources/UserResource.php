@@ -18,6 +18,7 @@ use Filament\Tables\Table;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use STS\FilamentImpersonate\Tables\Actions\Impersonate;
 
 class UserResource extends Resource
 {
@@ -146,6 +147,7 @@ protected static ?int $navigationSort = 1;
             ->actions([
                 Tables\Actions\EditAction::make()
                     ->slideOver(),
+                Impersonate::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
