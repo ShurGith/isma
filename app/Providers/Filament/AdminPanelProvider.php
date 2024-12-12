@@ -47,6 +47,7 @@ class AdminPanelProvider extends PanelProvider
                 // ... Other Plugins
                 \ChrisReedIO\Socialment\SocialmentPlugin::make()
                     ->registerProvider('azure', 'fab-microsoft', 'Azure Active Directory'),
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
             ])
             ->middleware([
                 EncryptCookies::class,
