@@ -55,7 +55,11 @@ class TimesheetResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('type')
                     ->searchable()
-                    ->searchable(),
+                    ->badge()
+                    ->color(fn(string $state): string => match($state){
+                        'work' => 'success',
+                        'pause' => 'warning',
+                    }),
                 Tables\Columns\TextColumn::make('day_in')
                     ->searchable()
                     ->dateTime()

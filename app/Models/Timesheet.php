@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Timesheet extends Model
 {
-    use HasFactory;
     protected $guarded = [];
     use HasFactory;
+
     public function user()
     {
         return $this->belongsTo(User::class);
